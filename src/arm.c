@@ -18,7 +18,7 @@
 
 void Arms_Init(Arm_t arms[3]) {
     for (int i = 0; i < 3; ++i) {
-        arms[i].joint_angle = 0.0f; // Initialize each arm's joint angle to zero
+        Arm_SetAngle(&arms[i], 0.0f); // Initialize each arm's joint angle to zero
     }
     for (int i = 0; i < 3; ++i) {
         arms[i].min_angle = ROBOT_MIN_JOINT_ANGLE; // Initialize each arm's minimum joint angle
@@ -29,9 +29,7 @@ void Arms_Init(Arm_t arms[3]) {
 }
 
 void Arm_SetAngle(Arm_t * arm, float angle) {
-    if (angle >= arm->min_angle && angle <= arm->max_angle) {
-        arm->joint_angle = angle;
-    }
+    arm->joint_angle = angle; // @todo: improve implementation, check validity, etc
 }
 
 bool Arm_CheckJointAngles(const Arm_t arms[3]) {
