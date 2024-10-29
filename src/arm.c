@@ -29,9 +29,7 @@ void Arms_Init(Arm_t arms[3]) {
 }
 
 void Arm_SetAngle(Arm_t * arm, float angle) {
-    if (angle >= arm->min_angle && angle <= arm->max_angle) {
-        arm->joint_angle = angle;
-    }
+    arm->joint_angle = angle; // @todo: improve implementation, check validity, etc
 }
 
 bool Arm_CheckJointAngles(const Arm_t arms[3]) {
