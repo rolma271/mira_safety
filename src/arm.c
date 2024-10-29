@@ -18,7 +18,7 @@
 
 void Arms_Init(Arm_t arms[3]) {
     for (int i = 0; i < 3; ++i) {
-        arms[i].joint_angle = 0.0f; // Initialize each arm's joint angle to zero
+        Arm_SetAngle(&arms[i], 0.0f); // Initialize each arm's joint angle to zero
     }
     for (int i = 0; i < 3; ++i) {
         arms[i].min_angle = ROBOT_MIN_JOINT_ANGLE; // Initialize each arm's minimum joint angle
